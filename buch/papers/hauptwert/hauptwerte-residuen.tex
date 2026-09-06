@@ -91,10 +91,11 @@ komplexe Ebene der Singularität aus und macht einen kleinen Bogen darum
 (Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
 \begin{lemma}
 \label{hauptwert:lemma:halbresiduen}
-Man integriere eine Funktion $f(z)$ mit Polstelle erster Ordnung in $x_0$
-entlang einer Kurve $C_\varepsilon$, wobei $C_\varepsilon$ einen kleinen Halbkreis
-über die Polstelle an $x_0$ von $x_0-\varepsilon$ nach $x_0+\varepsilon$ macht.
-Es gilt
+Das Integral einer Funktion $f(z)$ mit Polstelle erster Ordnung in $x_0$
+entlang einer Kurve $C_\varepsilon$, wobei $C_\varepsilon$ einen kleinen
+Halbkreis über die Polstelle an $x_0$ von $x_0-\varepsilon$ nach
+$x_0+\varepsilon$ macht, ist
+(siehe Abbildung~\ref{hauptwert:figure:halbkreiskontur})
 \begin{equation}
   \lim_{\varepsilon \to 0^+} \int_{C_\varepsilon} f(z)\,dz = -i\pi \res(x_0;f).
 \end{equation}
@@ -136,7 +137,7 @@ von $C_\varepsilon$ ist $\pi\varepsilon$ und damit
 \begin{equation}
   \biggl| \int_{C_\varepsilon} g(z)\,dz \biggr|
   \le M \pi \varepsilon
-  \longrightarrow 0
+  \to 0
   \qquad (\varepsilon \to 0^+).
 \end{equation}
 Zusammen folgt die Behauptung.
@@ -152,7 +153,7 @@ Zusammen folgt die Behauptung.
 Sei $a > 0$ und $C_R$ ein Halbkreis in der oberen Halbebene mit Radius $R$.
 Geht $f(z)$ für $|z| \to \infty$ gleichmässig gegen $0$, gilt also
 \begin{equation}
-  M(R) = \max_{z \in C_R} |f(z)| \longrightarrow 0
+  M(R) = \max_{z \in C_R} |f(z)| \to 0
   \qquad (R \to \infty),
   \label{hauptwert:equation:jordanbedingung}
 \end{equation}
@@ -163,7 +164,7 @@ dann ist
 \end{lemma}
 
 Die Bedingung \eqref{hauptwert:equation:jordanbedingung} ist insbesondere
-für Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
+für rationale Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 
 \begin{proof}
   Der Bogen $C_R$ wird durch
@@ -181,8 +182,8 @@ für Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
     \biggl| \int_{C_R} f(z) e^{iaz}\,dz \biggr|
     \le
     \int_{0}^{\pi}
-      \bigl| f(Re^{i\theta}) \bigr|
-      \bigl| e^{iaRe^{i\theta}} \bigr|
+      \bigl| f(Re^{i\theta}) \bigr|\,
+      \bigl| e^{iaRe^{i\theta}} \bigr|\,
       \bigl| i R e^{i \theta} \bigr|
       \,d\theta.
   \end{equation}
@@ -206,7 +207,7 @@ für Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
     iaz
     =
     -aR\sin\theta + i\,aR\cos\theta
-    \qquad\Longrightarrow\qquad
+    \qquad\Rightarrow\qquad
     \bigl| e^{iaz} \bigr| = e^{-aR\sin\theta}.
     \label{hauptwert:equation:jordandaempfung}
   \end{equation}
@@ -258,24 +259,41 @@ für Funktionen der Form $\frac{P}{Q}$ mit $\deg Q > \deg P$ erfüllt.
 \subsection{Die Halbkreiskontur
 \label{hauptwert:subsection:halbkreiskontur}}
 
+Dank der beiden Lemmas kann nun der Residuensatz auf Integrale über die
+reelle Achse angewandt werden.
+Das ermöglicht uns, uneigentliche Integrale mit dem Hauptwert zu berechnen.
+Die Strategie ist dabei dieselbe wie im
+Beispiel aus Abschnitt~\ref{hauptwert:subsection:aufwaermbeispiel}:
+Die Strecke $[-R, R]$ wird durch den grossen Halbkreis
+$C_R$ zu einem geschlossenen Weg ergänzt und die Polstellen auf der
+Achse werden durch kleine Kreisbogen umgangen
+(Abbildung~\ref{hauptwert:figure:halbkreiskontur}).
+
+
+Damit der Residuensatz funktioniert, muss der Integrand vier Bedingungen
+erfüllen.
+
 \begin{satz}
 \label{hauptwert:satz:hauptformel}
-Damit der Residuensatz funktioniert, werden vier Voraussetzungen benötigt:
+Die Funktion $f$ erfülle die folgenden Voraussetzungen:
 \begin{enumerate}
-  \item $f$ ist innerhalb des Integrationsweges holomorph (d.h. überall differenzierbar) bis auf endlich viele Singularitäten.
-  \item $f$ hat maximal Singularitäten ersten Grades $x_1,\dots,x_m$ auf dem reellen Bereich.
-  \item In der oberen Halbebene hat $f$ endlich viele Polstellen $z_1,\dots,z_n$.
-  \item Das Integral des grossen Bogens $C_R$ verschwindet für $R \to \infty$:
-  \begin{equation}
-  \lim_{R \to \infty} \int_{C_R} f(z)\,dz = 0.
-  \label{hauptwert:equation:bogenbedingung}
-  \end{equation}
+  \item $f$ ist in der oberen Halbebene holomorph, also überall komplex
+  differenzierbar, bis auf isolierte Singularitäten.
+  \item Auf der reellen Achse hat $f$ höchstens Polstellen erster Ordnung
+  $x_1,\dots,x_m$.
+  \item In der offenen oberen Halbebene hat $f$ endlich viele Polstellen
+  $z_1,\dots,z_n$.
+  \item Für $|z| \to \infty$ geht $|z\,f(z)|$ gleichmässig gegen $0$.
 \end{enumerate}
-
-Sind diese Voraussetzungen erfüllt, dann gilt
-  \begin{equation}
-    \pv \int_{-\infty}^{\infty} f(x)\,dx = 2 i \pi \sum_{k=1}^{n} \res(z_k; f) + i \pi \sum_{j=1}^{m} \res(x_j; f).
-  \end{equation}
+Dann gilt
+\begin{equation}
+  \pv \int_{-\infty}^{\infty} f(x)\,dx
+  =
+  2i\pi \sum_{k=1}^{n} \res(z_k; f)
+  +
+  i\pi \sum_{j=1}^{m} \res(x_j; f).
+  \label{hauptwert:equation:hauptformel}
+\end{equation}
 \end{satz}
 
 \begin{proof}
